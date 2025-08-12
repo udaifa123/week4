@@ -132,7 +132,14 @@ let result2=students3
  .sort((a,b)=>b.marks-a.marks);
  console.log(result2);
 
-
+let result2=students
+.filter(student3=>student3.marks>=40)
+.map(student3=>( {
+    name:student3.name,
+    marks:student3.marks+5
+ }))
+ .sort((a,b)=>b.marks-a.marks);
+ console.log(result2);
 
 
 
