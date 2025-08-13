@@ -12,6 +12,11 @@ function greet(name){
     }
     console.log(add(5,3));
 
+    const multiply=function(a,b){
+        return a*b;
+    };
+    console.log(multiply(5,2));
+
     const greet1=function(name){
         return `Hello,${name}!`;
     };
@@ -26,6 +31,9 @@ function greet(name){
      const numbers=[1,2,3];
      const squares=numbers.map(n=>n*n);
      console.log(squares);
+
+     const divide=(a,b)=>a/b;
+     console.log(divide(10,2));
 
      setTimeout(function(){
         console.log("Hello Iam Udaifa!");
@@ -48,7 +56,7 @@ function greet(name){
         }
         console.log(total);
      }
-     sum(20,30);
+     sum(30,40);
      sum(5,10,15,20,25,30);
 
      function greet3(first,...others){
@@ -57,11 +65,11 @@ function greet(name){
      }
      greet3("aysha","maryam","khadeeja");
 
-     function sum(...numbers){
+     function sum1(...numbers){
         return numbers.reduce((total,num)=>total+num,0);
      }
-     console.log(sum(4,5,6));
-     console.log(sum(50,60,70,80));
+     console.log(sum1(4,5,6));
+     console.log(sum1(50,60,70,80));
 
      const arr1=[1,2,3];
      const arr2=[4,5,6];
@@ -97,12 +105,62 @@ function greet(name){
         console.log(name2);
      }
 
-     let globalVar="I am Udaifa";
+     let globalVar="I am global";
+     function showGlobal(){
+        console.log(globalVar);
+     }
+     showGlobal();
+     console.log(globalVar);
+
+     function localScope(){
+        let mesage="I am local";
+        console.log(message);
+     }
+     
+     if(true){
+        let blockVar="I exist only here";
+        console.log(blockVar);
+     }
+     
+
+     function outer(){
+        let outerVar="Outer";
+        function inner(){
+            console.log(outerVar);
+        }
+        inner();
+     }
+     outer();
+
+     let name="Global";
+     function changeName(){
+        let name="Local";
+        console.log(name);
+     }
+     changeName();
+     console.log(name);
+
+     let count=0;
+     function increment(){
+        count++;
+        return count;
+     }
+     const reset=function(){
+        let count=0;
+        return count;
+     }
+     const logCount=()=>console.log("Count",count);
+     increment();
+     logCount();
+     reset();
+     logCount();
+
+     let globalVar1="I am Udaifa";
      function outerFunction(){
         let outerVar="I am from Nellikkunnu";
         function innerFunction(){
             let innerVar="I am studying zaitoon international campus";
-            console.log(globalVar);
+            console.log(globalVar1);
             console.log(outerVar);
             console.log(innerVar);
         }
