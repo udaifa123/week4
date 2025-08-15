@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Simple Flash Cards</title>
+<style>
+  body { font-family: Arial; padding: 20px; background:lightgrey;}
+  button { padding: 5px 10px; margin: 5px 0; }
+  .card { border: 1px solid #ccc; padding: 10px; margin: 10px 0; cursor: pointer; }
+  .answer { display: none; color: #555; margin-top: 5px; }
+  .card.show .answer { display: block; }
+</style>
+</head>
+<body>
+
+<h1>Flash Cards</h1>
+<button id="addCardBtn">Add Card</button>
+<div id="cardsContainer"></div>
+
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+    const container = document.getElementById('cardsContainer');
+const addBtn = document.getElementById('addCardBtn');
+const KEY='flashCards';
+
+function loadCards(){
+    try{return JSON.parse(localStorage.getItem(KEY)) || [];}
+    catch{localStorage.removeItem(KEY);return[];}
+}
+let cards=loadCards();
+render();
+
+addBtn.addEventListener('click',() => {
+  const q =(prompt('Enter Question:') || '').trim();
+  if (!q) return;
+  const a = (prompt("Enter Answer:") || '').trim();
+  if (!a) return;
+
+  cards.push({ q, a });
+  localStorage.setItem(KEY,JSON.stringify(cards));
+  render();
+});
+
+
+function render() {
+  container.innerHTML = '';
+  cards.forEach((card) => {
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `<strong>Q:</strong>${card.q}
+    <div class="answer"><strong>A:</strong>${card.a}</div`;
+    div.addEventListener('click',() => div.classList.toggle('show'));
+    container.appendChild(div);
+  });
+}
+});
+</script>
+
+</body>
+</html>
