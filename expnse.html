@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Expense Tracker</title>
+</head>
+<body>
+    <h2>Expense Tracker</h2>
+    <input type="text" id="name" placeholder="Expense Name">
+    <input type="number" id="amount" placeholder="Amount">
+    <button onclick="addExpense()">Add Expense</button>
+
+    <h3>Expenses:</h3>
+    <ul id="list"></ul>
+
+    <h3>Total: $<span id="total">0</span></h3>
+
+    <script>
+        
+        let expenses = JSON.parse(localStorage.getItem('expenses')) || [];
+
+        function render() {
+            const list = document.getElementById('list');
+            list.innerHTML = '';
+            let total = 0;
+            expenses.forEach((exp, i) => {
+                total += exp.amount;
+                const li = document.createElement('li');
+                li.textContent = `${exp.name}: $${exp.amount}`;
+                list.appendChild(li);
+            });
+            document.getElementById('total').textContent = total;
+        }
+
+        function addExpense() {
+            const name = document.getElementById('name').value;
+            const amount = parseFloat(document.getElementById('amount').value);
+            if(name && !isNaN(amount)) {
+                expenses.push({name, amount});
+                localStorage.setItem('expenses', JSON.stringify(expenses));
+                render();
+                document.getElementById('name').value = '';
+                document.getElementById('amount').value = '';
+            } else {
+                alert('Enter valid name and amount');
+            }
+        }
+
+        render(); 
+    </script>
+</body>
+</html>

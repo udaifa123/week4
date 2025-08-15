@@ -4,7 +4,7 @@ const person={
     }
 };
 const udaifaahh=Object.create(person);
-udaifaahh.name="Udaifaahh";
+udaifaahh.name="Udaifaahh😍";
 udaifaahh.greet();
 
 const grandParent={

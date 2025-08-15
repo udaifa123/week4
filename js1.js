@@ -1,5 +1,5 @@
 const person = {
-    name: "Aflaahh",
+    name: "Udaifaahh🤩",
     age: 23,
     greet: function() {
         console.log(`Hello, my name is ${this.name}`);
@@ -12,7 +12,7 @@ person.greet();
 
 const car=new Object();
 car.brand="Toyota";
-car.model="Corolla";
+car.model="BMW";
 car.start=function(){
     console.log(`${this.brand} ${this.model} is starting.`);
 };
@@ -39,7 +39,7 @@ class Person3{
         console.log(`Hello,my name is ${this.name}`);
     }
 }
-const person3=new Person3("Ayrin",25);
+const person3=new Person3("Udaifa",18);
 person3.greet();
 
 const cat={
@@ -67,7 +67,7 @@ const person5={
 person5.greet();
 
 const person6={
-    name:"Charlie",
+    name:"Udaifa",
     greet:function(){
         function inner(){
             console.log(this.name);
@@ -78,7 +78,7 @@ const person6={
 person6.greet();
 
 const person7={
-    name:"Charlie",
+    name:"Udaifa",
     greet:function(){
         const inner=()=>{
             console.log(this.name);
@@ -89,7 +89,7 @@ const person7={
 person7.greet();
 
 const user={
-    username:"udaifa",
+    username:"udaifa😊",
     email:"udaifa@045gmail.com",
     country:"India"
 };
@@ -118,14 +118,14 @@ console.log(rest);
 let[p=100,q=200]=[50];
 console.log(p,q);
 
-let person8={name:"Saji",age:19,city:"Ladak"};
+let person8={name:"Saji😍",age:19,city:"Paris"};
 let{name,age}=person8;
 console.log(name,age);
 
 let{name:fullName,age:years}=person8;
 console.log(fullName,years);
 
-let{name1,country1="Paris"}=person8;
+let{name1,country1="Ladak"}=person8;
 console.log(name,country1);
 
 let student={
@@ -192,7 +192,7 @@ function createProfile(name2,age2,skills){
         skills
     };
 }
-const profile=createProfile("Hisha",24,["HTML","CSS","JavaScript"]);
+const profile=createProfile("Udaifa🤩",18,["HTML","CSS","JavaScript"]);
 const{name2,age2,skills}=profile;
 console.log("Name:",name2);
 console.log("Age:",age2);
